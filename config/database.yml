@@ -1,0 +1,23 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  port: 54320
+  username: postgres
+  password: postgres@123
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: Comee_PO_development
+
+test:
+  <<: *default
+  database: Comee_PO_test
+
+production:
+  <<: *default
+  database: Comee_PO_production
+  username: Comee_PO
+  password: <%= ENV["COMEE_PO_DATABASE_PASSWORD"] %>
